@@ -988,15 +988,15 @@ class _MatchScreenState extends State<MatchScreen> {
                       ],
                     ),
                     isFirstPlayer
-                        ? const Text(
-                            'Rzuca gracz 1',
-                            style: TextStyle(
+                        ? Text(
+                            'Rzuca gracz $firstPlayer',
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           )
-                        : const Text(
-                            'Rzuca gracz 2',
-                            style: TextStyle(
+                        : Text(
+                            'Rzuca gracz $secondPlayer',
+                            style: const TextStyle(
                               fontSize: 20,
                             ),
                           ),
