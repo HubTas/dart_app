@@ -83,9 +83,8 @@ class _MatchScreenState extends State<MatchScreen> {
     _loadData();
     getUsers();
 
-    // Pobieranie danych co 5 sekund
     _timer = Timer.periodic(Duration(seconds: 5), (timer) {
-      _loadData(); // Tutaj umieść kod do pobierania danych z bazy
+      _loadData();
     });
   }
 

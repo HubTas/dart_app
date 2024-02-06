@@ -167,7 +167,7 @@ class _StatsState extends State<Stats> {
                       ),
                       const SizedBox(width: 8.0),
                       const Text(
-                        'Średnia wygranych meczy',
+                        'Procent wygranych meczy',
                         textAlign: TextAlign.center,
                       ),
                     ],
