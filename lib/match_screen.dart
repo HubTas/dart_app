@@ -613,7 +613,6 @@ class _MatchScreenState extends State<MatchScreen> {
       }
       if (firstPlayerSets == maxSets) {
         addMatchWinner(1);
-        // ZMIENIĆ NA DIALOG Z PRZYCISKIEM
         const Dialog(
           child: Text('Gratulacje 1 gracz zwyciężył mecz'),
         );
@@ -643,7 +642,6 @@ class _MatchScreenState extends State<MatchScreen> {
       }
       if (secondPlayerSets == maxSets) {
         addMatchWinner(2);
-        // ZMIENIĆ NA DIALOG Z PRZYCISKIEM
         const Dialog(
           child: Text('Gratulacje 2 gracz zwyciężył mecz'),
         );
@@ -654,7 +652,6 @@ class _MatchScreenState extends State<MatchScreen> {
     } else {
       if (firstPlayerLegs == maxLegs) {
         addMatchWinner(1);
-        // ZMIENIĆ NA DIALOG Z PRZYCISKIEM
         const Dialog(
           child: Text('Gratulacje 1 gracz zwyciężył mecz'),
         );
@@ -665,7 +662,6 @@ class _MatchScreenState extends State<MatchScreen> {
 
       if (secondPlayerLegs == maxLegs) {
         addMatchWinner(2);
-        // ZMIENIĆ NA DIALOG Z PRZYCISKIEM
         const Dialog(
           child: Text('Gratulacje 2 gracz zwyciężył mecz'),
         );
@@ -787,12 +783,6 @@ class _MatchScreenState extends State<MatchScreen> {
     } else {
       isAllowedToThrow = false;
     }
-
-    // if (isFinished) {
-    //   Get.to(
-    //     const SelectionScreen(),
-    //   );
-    // }
 
     return SmartRefresher(
         controller: _refreshController,
@@ -1009,32 +999,6 @@ class _MatchScreenState extends State<MatchScreen> {
                       ),
                     ),
                     const Spacer(),
-                    // TextButton(
-                    //     onPressed: () {
-                    //       setState(() {
-                    //         firstPlayerScore = 0;
-                    //         secondPlayerScore = 0;
-                    //         dartCounter = 0;
-                    //         setCounter = 0;
-                    //         legCounter = 0;
-                    //         firstPlayerSets = 0;
-                    //         firstPlayerLegs = 0;
-                    //         secondPlayerSets = 0;
-                    //         secondPlayerLegs = 0;
-                    //         isFirstPlayer = true;
-                    //         doubleNextValue = false;
-                    //         tripleNextValue = false;
-                    //         firstPlayerDarts = List<int>.filled(
-                    //           3,
-                    //           0,
-                    //         );
-                    //         secondPlayerDarts = List<int>.filled(
-                    //           3,
-                    //           0,
-                    //         );
-                    //       });
-                    //     },
-                    //     child: const Text('Reset')),
                     Column(
                       children: [
                         Row(
@@ -1167,7 +1131,6 @@ class _MatchScreenState extends State<MatchScreen> {
                                 style: ButtonStyle(
                                   backgroundColor:
                                       MaterialStateProperty.all<Color>(
-                                    // const Color.fromARGB(255, 123, 193, 255),
                                     const Color.fromARGB(125, 123, 193, 255),
                                   ),
                                   minimumSize: MaterialStateProperty.all<Size>(
@@ -1181,7 +1144,7 @@ class _MatchScreenState extends State<MatchScreen> {
                                   ),
                                 ),
                                 onPressed: () {
-                                  // ZAIMPLEMENTOWAĆ COFNIĘCIE POPRZEDNIEGO RZUTU
+                                  // ZAIMPLEMENTOWAĆ COFNIĘCIE POPRZEDNIEGO RZUTU W PRZYSZLOSCI
                                 },
                                 child: const Icon(Icons.arrow_back),
                               ),

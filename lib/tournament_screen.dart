@@ -737,7 +737,7 @@ class _TournamentScreenState extends State<TournamentScreen> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Zamknięcie dialogu
+                Navigator.of(context).pop();
               },
               child: Text('Anuluj'),
             ),
@@ -771,7 +771,7 @@ class _TournamentScreenState extends State<TournamentScreen> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.of(context).pop(); // Zamknięcie dialogu
+                Navigator.of(context).pop();
               },
               child: Text('OK'),
             ),

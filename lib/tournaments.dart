@@ -29,27 +29,28 @@ class _TournamentsState extends State<Tournaments> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-        future: fetchIds(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Text('Wystąpił błąd: ${snapshot.error}');
-          } else {
-            return RefreshIndicator(
-              onRefresh: fetchIds,
-              child: Padding(
-                padding: const EdgeInsets.all(10),
-                child: ListView.builder(
-                    itemCount: idsList.length,
-                    itemBuilder: (ctx, index) {
-                      return TournamentItem(
-                        tournamentId: idsList[index],
-                      );
-                    }),
-              ),
-            );
-          }
-        });
+      future: fetchIds(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Text('Wystąpił błąd: ${snapshot.error}');
+        } else {
+          return RefreshIndicator(
+            onRefresh: fetchIds,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: ListView.builder(
+                  itemCount: idsList.length,
+                  itemBuilder: (ctx, index) {
+                    return TournamentItem(
+                      tournamentId: idsList[index],
+                    );
+                  }),
+            ),
+          );
+        }
+      },
+    );
   }
 }

@@ -100,124 +100,125 @@ class _MatchItemState extends State<MatchItem> {
       uid = user!.uid;
     }
     return FutureBuilder<void>(
-        future: getMatch(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Text('Wystąpił błąd: ${snapshot.error}');
-          } else {
-            return Padding(
-              padding: const EdgeInsets.all(10),
-              child: Card(
-                color: isFinshed
-                    ? const Color.fromARGB(125, 123, 193, 255)
-                    : const Color.fromARGB(255, 123, 193, 255),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                clipBehavior: Clip.hardEdge,
-                child: InkWell(
-                  onTap: () {
-                    if ((uid == firstPlayerId || uid == secondPlayerId) &&
-                        !isFinshed) {
-                      Get.to(
-                        MatchScreen(
-                          matchId: widget.matchId,
-                        ),
-                      );
-                    }
-                  },
-                  child: Padding(
-                    padding: const EdgeInsets.only(
-                      top: 10,
-                      bottom: 10,
-                    ),
-                    child: Row(
-                      children: [
-                        Column(
-                          children: [
-                            Row(
-                              children: [
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                SizedBox(
-                                  width: 70,
-                                  child: Center(
-                                    child: Text(
-                                      firstPlayer,
-                                      softWrap: false,
-                                      overflow: TextOverflow.fade,
-                                    ),
+      future: getMatch(),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Text('Wystąpił błąd: ${snapshot.error}');
+        } else {
+          return Padding(
+            padding: const EdgeInsets.all(10),
+            child: Card(
+              color: isFinshed
+                  ? const Color.fromARGB(125, 123, 193, 255)
+                  : const Color.fromARGB(255, 123, 193, 255),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              clipBehavior: Clip.hardEdge,
+              child: InkWell(
+                onTap: () {
+                  if ((uid == firstPlayerId || uid == secondPlayerId) &&
+                      !isFinshed) {
+                    Get.to(
+                      MatchScreen(
+                        matchId: widget.matchId,
+                      ),
+                    );
+                  }
+                },
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    top: 10,
+                    bottom: 10,
+                  ),
+                  child: Row(
+                    children: [
+                      Column(
+                        children: [
+                          Row(
+                            children: [
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              SizedBox(
+                                width: 70,
+                                child: Center(
+                                  child: Text(
+                                    firstPlayer,
+                                    softWrap: false,
+                                    overflow: TextOverflow.fade,
                                   ),
                                 ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                isSetFormat
-                                    ? SizedBox(
-                                        width: 30,
-                                        child: Text(
-                                            '${firstPlayerSets.toString()}:${secondPlayerSets.toString()}'),
-                                      )
-                                    : SizedBox(
-                                        width: 30,
-                                        child: Text(
-                                            '${firstPlayerLegs.toString()}:${secondPlayerLegs.toString()}'),
-                                      ),
-                                const SizedBox(
-                                  width: 20,
-                                ),
-                                SizedBox(
-                                  width: 70,
-                                  child: Center(
-                                    child: Text(
-                                      secondPlayer,
-                                      softWrap: false,
-                                      overflow: TextOverflow.fade,
+                              ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              isSetFormat
+                                  ? SizedBox(
+                                      width: 30,
+                                      child: Text(
+                                          '${firstPlayerSets.toString()}:${secondPlayerSets.toString()}'),
+                                    )
+                                  : SizedBox(
+                                      width: 30,
+                                      child: Text(
+                                          '${firstPlayerLegs.toString()}:${secondPlayerLegs.toString()}'),
                                     ),
+                              const SizedBox(
+                                width: 20,
+                              ),
+                              SizedBox(
+                                width: 70,
+                                child: Center(
+                                  child: Text(
+                                    secondPlayer,
+                                    softWrap: false,
+                                    overflow: TextOverflow.fade,
                                   ),
                                 ),
-                              ],
-                            ),
-                            const SizedBox(
-                              height: 10,
-                            ),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Text('Runda: ${round.toString()}'),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const Spacer(),
-                        Column(
-                          children: [
-                            Text(format),
-                            Text(pointsToScore.toString()),
-                            Row(
-                              children: [
-                                Text('Legi: ${maxLegs.toString()}'),
-                                const SizedBox(
-                                  width: 10,
-                                ),
-                                Text('Sety: ${maxSets.toString()}'),
-                              ],
-                            ),
-                          ],
-                        ),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                      ],
-                    ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 10,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              Text('Runda: ${round.toString()}'),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Column(
+                        children: [
+                          Text(format),
+                          Text(pointsToScore.toString()),
+                          Row(
+                            children: [
+                              Text('Legi: ${maxLegs.toString()}'),
+                              const SizedBox(
+                                width: 10,
+                              ),
+                              Text('Sety: ${maxSets.toString()}'),
+                            ],
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        width: 10,
+                      ),
+                    ],
                   ),
                 ),
               ),
-            );
-          }
-        });
+            ),
+          );
+        }
+      },
+    );
   }
 }

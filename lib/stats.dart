@@ -176,10 +176,5 @@ class _StatsState extends State<Stats> {
               ),
             ),
     );
-    // Text('Tutaj pojawią się statystyki'),
-    // średnia
-    // ilosc meczy
-    // ilosc turniejow
-    // procent wygranych meczów
   }
 }

@@ -65,105 +65,106 @@ class _TournamentItemState extends State<TournamentItem> {
   @override
   Widget build(BuildContext context) {
     return FutureBuilder<void>(
-        future: getTournament(widget.tournamentId),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Text('Wystąpił błąd: ${snapshot.error}');
-          } else {
-            return Card(
-              color: (playersIdList.length < playersNumber)
-                  ? const Color.fromARGB(137, 0, 255, 0)
-                  : const Color.fromARGB(137, 255, 0, 0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(12),
-              ),
-              clipBehavior: Clip.hardEdge,
-              child: InkWell(
-                onTap: () {
-                  Get.to(
-                    TournamentScreen(
-                      tournamentId: widget.tournamentId,
+      future: getTournament(widget.tournamentId),
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Text('Wystąpił błąd: ${snapshot.error}');
+        } else {
+          return Card(
+            color: (playersIdList.length < playersNumber)
+                ? const Color.fromARGB(137, 0, 255, 0)
+                : const Color.fromARGB(137, 255, 0, 0),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+            clipBehavior: Clip.hardEdge,
+            child: InkWell(
+              onTap: () {
+                Get.to(
+                  TournamentScreen(
+                    tournamentId: widget.tournamentId,
+                  ),
+                );
+              },
+              child: Column(
+                children: [
+                  Row(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: SizedBox(
+                          width: 130,
+                          child: Column(
+                            children: [
+                              Text(
+                                name,
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
+                              ),
+                              Text(
+                                widget.tournamentId,
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: SizedBox(
+                          width: 140,
+                          child: Column(
+                            children: [
+                              Text(
+                                type,
+                                softWrap: true,
+                              ),
+                              Text(
+                                '${playersIdList.length}/${playersNumber.toString()}',
+                                softWrap: false,
+                                overflow: TextOverflow.fade,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: Icon(
+                          icon == 1
+                              ? Icons.emoji_events
+                              : icon == 2
+                                  ? Icons.star
+                                  : Icons.favorite,
+                          color: iconColor,
+                          size: 20,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(
+                      bottom: 10,
                     ),
-                  );
-                },
-                child: Column(
-                  children: [
-                    Row(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: SizedBox(
-                            width: 130,
-                            child: Column(
-                              children: [
-                                Text(
-                                  name,
-                                  softWrap: false,
-                                  overflow: TextOverflow.fade,
-                                ),
-                                Text(
-                                  widget.tournamentId,
-                                  softWrap: false,
-                                  overflow: TextOverflow.fade,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        const Spacer(),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: SizedBox(
-                            width: 140,
-                            child: Column(
-                              children: [
-                                Text(
-                                  type,
-                                  softWrap: true,
-                                ),
-                                Text(
-                                  '${playersIdList.length}/${playersNumber.toString()}',
-                                  softWrap: false,
-                                  overflow: TextOverflow.fade,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Icon(
-                            icon == 1
-                                ? Icons.emoji_events
-                                : icon == 2
-                                    ? Icons.star
-                                    : Icons.favorite,
-                            color: iconColor,
-                            size: 20,
-                          ),
-                        ),
+                        Text(isPrivate
+                            ? 'Hasło jest wymagane'
+                            : 'Hasło nie jest wymagane'),
                       ],
                     ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                        bottom: 10,
-                      ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          Text(isPrivate
-                              ? 'Hasło jest wymagane'
-                              : 'Hasło nie jest wymagane'),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
-            );
-          }
-        });
+            ),
+          );
+        }
+      },
+    );
   }
 }

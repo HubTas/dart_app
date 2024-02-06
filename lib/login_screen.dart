@@ -28,7 +28,6 @@ class _LoginScreenState extends State<LoginScreen> {
       },
     );
 
-    // TRZEBA POPRAWIĆ INFORMOWANIE O PODANIU ZŁEGO EMAILU LUB HASŁA
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
@@ -43,7 +42,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void showErrorMessage(String message) {
-    // POPRAWIĆ WYGLĄD DIALOGU
     showDialog(
       context: context,
       builder: (context) {
