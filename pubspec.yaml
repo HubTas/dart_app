@@ -41,7 +41,6 @@ dependencies:
   firebase_auth: ^4.15.3
   toggle_switch: ^2.1.0
   cloud_firestore: ^4.14.0
-  firebase_database: ^10.4.0
   pull_to_refresh: ^2.0.0
   image_picker: ^1.0.7
   firebase_storage: ^11.6.0

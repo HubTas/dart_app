@@ -349,12 +349,12 @@ class _TournamentCreationState extends State<TournamentCreation> {
   @override
   Widget build(BuildContext context) {
     List<String> types = [
-      // 'System kołowy',
-      // 'System grupowy',
-      // 'System szwajcarski',
+      'System kołowy',
+      'System grupowy',
+      'System szwajcarski',
       'System pucharowy',
-      // 'System pucharowy do dwóch przegranych',
-      // 'System mieszany',
+      'System pucharowy do dwóch przegranych',
+      'System mieszany',
     ];
 
     List<int> numbers = [
